@@ -1,6 +1,6 @@
 package com.example.restmongo.model;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,7 +9,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Document
 public class Student {
     @Id
@@ -23,16 +26,4 @@ public class Student {
     private List<String> favouriteSubjects;
     private BigDecimal totalSpentInBooks;
     private LocalDateTime created;
-
-    public Student(String firstname, String lastname, String email, Gender gender, Address address,
-                   List<String> favouriteSubjects, BigDecimal totalSpentInBooks, LocalDateTime created) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.gender = gender;
-        this.address = address;
-        this.favouriteSubjects = favouriteSubjects;
-        this.totalSpentInBooks = totalSpentInBooks;
-        this.created = created;
-    }
 }
